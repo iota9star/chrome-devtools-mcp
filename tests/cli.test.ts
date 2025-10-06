@@ -15,7 +15,7 @@ describe('cli args parsing', () => {
       _: [],
       headless: false,
       isolated: false,
-      $0: 'npx chrome-devtools-mcp@latest',
+      $0: 'npx @iota9star/chrome-devtools-mcp@latest',
       channel: 'stable',
     });
   });
@@ -31,7 +31,7 @@ describe('cli args parsing', () => {
       _: [],
       headless: false,
       isolated: false,
-      $0: 'npx chrome-devtools-mcp@latest',
+      $0: 'npx @iota9star/chrome-devtools-mcp@latest',
       'browser-url': 'http://localhost:3000',
       browserUrl: 'http://localhost:3000',
       u: 'http://localhost:3000',
@@ -49,7 +49,7 @@ describe('cli args parsing', () => {
       _: [],
       headless: false,
       isolated: false,
-      $0: 'npx chrome-devtools-mcp@latest',
+      $0: 'npx @iota9star/chrome-devtools-mcp@latest',
       'executable-path': '/tmp/test 123/chrome',
       e: '/tmp/test 123/chrome',
       executablePath: '/tmp/test 123/chrome',
@@ -67,7 +67,7 @@ describe('cli args parsing', () => {
       _: [],
       headless: false,
       isolated: false,
-      $0: 'npx chrome-devtools-mcp@latest',
+      $0: 'npx @iota9star/chrome-devtools-mcp@latest',
       channel: 'stable',
       viewport: {
         width: 888,

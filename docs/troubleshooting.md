@@ -2,7 +2,7 @@
 
 ## General tips
 
-- Run `npx chrome-devtools-mcp@latest --help` to test if the MCP server runs on your machine.
+- Run `npx @iota9star/chrome-devtools-mcp@latest --help` to test if the MCP server runs on your machine.
 - Make sure that your MCP client uses the same npm and node version as your terminal.
 - When configuring your MCP client, try using the `--yes` argument to `npx` to
   auto-accept installation prompt.

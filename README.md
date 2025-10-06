@@ -42,14 +42,14 @@ Add the following config to your MCP client:
   "mcpServers": {
     "chrome-devtools": {
       "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
+      "args": ["-y", "@iota9star/chrome-devtools-mcp@latest"]
     }
   }
 }
 ```
 
 > [!NOTE]  
-> Using `chrome-devtools-mcp@latest` ensures that your MCP client will always use the latest version of the Chrome DevTools MCP server.
+> Using `@iota9star/chrome-devtools-mcp@latest` ensures that your MCP client will always use the latest version of the Chrome DevTools MCP server.
 
 ### MCP Client configuration
 
@@ -58,7 +58,7 @@ Add the following config to your MCP client:
     Use the Claude Code CLI to add the Chrome DevTools MCP server (<a href="https://docs.anthropic.com/en/docs/claude-code/mcp">guide</a>):
 
 ```bash
-claude mcp add chrome-devtools npx chrome-devtools-mcp@latest
+claude mcp add chrome-devtools npx @iota9star/chrome-devtools-mcp@latest
 ```
 
 </details>
@@ -74,7 +74,7 @@ claude mcp add chrome-devtools npx chrome-devtools-mcp@latest
   using the standard config from above. You can also install the Chrome DevTools MCP server using the Codex CLI:
 
 ```bash
-codex mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
+codex mcp add chrome-devtools -- npx @iota9star/chrome-devtools-mcp@latest
 ```
 
 **On Windows 11**
@@ -88,7 +88,7 @@ args = [
     "/c",
     "npx",
     "-y",
-    "chrome-devtools-mcp@latest",
+    "@iota9star/chrome-devtools-mcp@latest",
 ]
 env = { SystemRoot="C:\\Windows", PROGRAMFILES="C:\\Program Files" }
 startup_timeout_ms = 20_000
@@ -116,7 +116,7 @@ Configure the following fields and press `CTR-S` to save the configuration:
 - **Server name:** `chrome-devtools`
 - **Server Type:** `[1] Local`
 - **Command:** `npx`
-- **Arguments:** `-y, chrome-devtools-mcp@latest`
+- **Arguments:** `-y, @iota9star/chrome-devtools-mcp@latest`
 
 </details>
 
@@ -126,7 +126,7 @@ Configure the following fields and press `CTR-S` to save the configuration:
   with the standard config from above. You can also install the Chrome DevTools MCP server using the VS Code CLI:
   
   ```bash
-  code --add-mcp '{"name":"chrome-devtools","command":"npx","args":["chrome-devtools-mcp@latest"]}'
+  code --add-mcp '{"name":"chrome-devtools","command":"npx","args":["@iota9star/chrome-devtools-mcp@latest"]}'
   ```
 </details>
 
@@ -150,13 +150,13 @@ Install the Chrome DevTools MCP server using the Gemini CLI.
 **Project wide:**
 
 ```bash
-gemini mcp add chrome-devtools npx chrome-devtools-mcp@latest
+gemini mcp add chrome-devtools npx @iota9star/chrome-devtools-mcp@latest
 ```
 
 **Globally:**
 
 ```bash
-gemini mcp add -s user chrome-devtools npx chrome-devtools-mcp@latest
+gemini mcp add -s user chrome-devtools npx @iota9star/chrome-devtools-mcp@latest
 ```
 
 Alternatively, follow the <a href="https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server">MCP guide</a> and use the standard config from above.
@@ -316,7 +316,7 @@ Pass them via the `args` property in the JSON configuration. For example:
     "chrome-devtools": {
       "command": "npx",
       "args": [
-        "chrome-devtools-mcp@latest",
+        "@iota9star/chrome-devtools-mcp@latest",
         "--channel=canary",
         "--headless=true",
         "--isolated=true"
@@ -336,7 +336,7 @@ For enhanced privacy and to avoid bot detection, you can enable stealth mode and
     "chrome-devtools": {
       "command": "npx",
       "args": [
-        "chrome-devtools-mcp@latest",
+        "@iota9star/chrome-devtools-mcp@latest",
         "--stealth",
         "--anonymizeUa",
         "--adblock"
@@ -346,7 +346,7 @@ For enhanced privacy and to avoid bot detection, you can enable stealth mode and
 }
 ```
 
-You can also run `npx chrome-devtools-mcp@latest --help` to see all available configuration options.
+You can also run `npx @iota9star/chrome-devtools-mcp@latest --help` to see all available configuration options.
 
 ## Concepts
 

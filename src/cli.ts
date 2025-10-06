@@ -104,7 +104,7 @@ export const cliOptions = {
 
 export function parseArguments(version: string, argv = process.argv) {
   const yargsInstance = yargs(hideBin(argv))
-    .scriptName('npx chrome-devtools-mcp@latest')
+    .scriptName('npx @iota9star/chrome-devtools-mcp@latest')
     .options(cliOptions)
     .check(args => {
       // We can't set default in the options else

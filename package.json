@@ -1,6 +1,6 @@
 {
-  "name": "chrome-devtools-mcp",
-  "version": "0.6.0",
+  "name": "@iota9star/chrome-devtools-mcp",
+  "version": "0.6.2",
   "description": "MCP server for Chrome DevTools",
   "type": "module",
   "bin": "./build/src/index.js",
@@ -28,14 +28,14 @@
     "LICENSE",
     "!*.tsbuildinfo"
   ],
-  "repository": "ChromeDevTools/chrome-devtools-mcp",
-  "author": "Google LLC",
+  "repository": "iota9star/chrome-devtools-mcp",
+  "author": "Google LLC & iota9star",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp/issues"
+    "url": "https://github.com/iota9star/chrome-devtools-mcp/issues"
   },
-  "homepage": "https://github.com/ChromeDevTools/chrome-devtools-mcp#readme",
-  "mcpName": "io.github.ChromeDevTools/chrome-devtools-mcp",
+  "homepage": "https://github.com/iota9star/chrome-devtools-mcp#readme",
+  "mcpName": "io.github.iota9star/chrome-devtools-mcp",
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.18.2",
     "core-js": "3.45.1",
@@ -58,7 +58,7 @@
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.43.0",
     "@typescript-eslint/parser": "^8.43.0",
-    "chrome-devtools-frontend": "1.0.1521880",
+    "chrome-devtools-frontend": "1.0.1524741",
     "eslint": "^9.35.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
@@ -71,6 +71,5 @@
   },
   "engines": {
     "node": "^20.19.0 || ^22.12.0 || >=23"
-  },
-  "packageManager": "pnpm@10.15.1+sha512.34e538c329b5553014ca8e8f4535997f96180a1d0f614339357449935350d924e22f8614682191264ec33d1462ac21561aff97f6bb18065351c162c7e8f6de67"
+  }
 }
