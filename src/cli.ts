@@ -85,6 +85,11 @@ export const cliOptions = {
     type: 'boolean',
     description: `If enabled, ignores errors relative to self-signed and expired certificates. Use with caution.`,
   },
+  stealth: {
+    type: 'boolean',
+    description: `Enable puppeteer-extra-plugin-stealth to make Puppeteer harder to detect. Helps avoid detection by anti-bot systems.`,
+    default: false,
+  },
 } satisfies Record<string, YargsOptions>;
 
 export function parseArguments(version: string, argv = process.argv) {
@@ -114,6 +119,7 @@ export function parseArguments(version: string, argv = process.argv) {
         '$0 --viewport 1280x720',
         'Launch Chrome with the initial viewport size of 1280x720px',
       ],
+      ['$0 --stealth', 'Enable stealth mode to avoid bot detection'],
     ]);
 
   return yargsInstance

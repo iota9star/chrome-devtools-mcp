@@ -16,6 +16,8 @@ import type {
   Target,
 } from 'puppeteer-core';
 import puppeteer from 'puppeteer-core';
+import {addExtra} from 'puppeteer-extra';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 
 let browser: Browser | undefined;
 
@@ -70,10 +72,12 @@ interface McpLaunchOptions {
     height: number;
   };
   args?: string[];
+  stealth?: boolean;
 }
 
 export async function launch(options: McpLaunchOptions): Promise<Browser> {
-  const {channel, executablePath, customDevTools, headless, isolated} = options;
+  const {channel, executablePath, customDevTools, headless, isolated, stealth} =
+    options;
   const profileDirName =
     channel && channel !== 'stable'
       ? `chrome-profile-${channel}`
@@ -107,8 +111,13 @@ export async function launch(options: McpLaunchOptions): Promise<Browser> {
         : 'chrome';
   }
 
+  // Select puppeteer instance based on stealth option
+  const puppeteerInstance = stealth
+    ? addExtra(puppeteer).use(StealthPlugin())
+    : puppeteer;
+
   try {
-    const browser = await puppeteer.launch({
+    const browser = await puppeteerInstance.launch({
       ...connectOptions,
       channel: puppeteerChannel,
       executablePath,
