@@ -291,6 +291,21 @@ The Chrome DevTools MCP server supports the following configuration option:
   If enabled, ignores errors relative to self-signed and expired certificates. Use with caution.
   - **Type:** boolean
 
+- **`--stealth`**
+  Enable puppeteer-extra-plugin-stealth to make Puppeteer harder to detect. Helps avoid detection by anti-bot systems.
+  - **Type:** boolean
+  - **Default:** `false`
+
+- **`--anonymizeUa`**
+  Anonymize the user-agent by removing HeadlessChrome from the UA string. Works with --stealth or standalone.
+  - **Type:** boolean
+  - **Default:** `false`
+
+- **`--adblock`**
+  Enable ad and tracker blocking using puppeteer-extra-plugin-adblocker. Improves page load speed and reduces fingerprinting.
+  - **Type:** boolean
+  - **Default:** `false`
+
 <!-- END AUTO GENERATED OPTIONS -->
 
 Pass them via the `args` property in the JSON configuration. For example:
@@ -305,6 +320,26 @@ Pass them via the `args` property in the JSON configuration. For example:
         "--channel=canary",
         "--headless=true",
         "--isolated=true"
+      ]
+    }
+  }
+}
+```
+
+### Privacy and Anti-Detection Configuration
+
+For enhanced privacy and to avoid bot detection, you can enable stealth mode and ad blocking:
+
+```json
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest",
+        "--stealth",
+        "--anonymizeUa",
+        "--adblock"
       ]
     }
   }

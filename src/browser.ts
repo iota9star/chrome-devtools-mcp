@@ -18,6 +18,8 @@ import type {
 import puppeteer from 'puppeteer-core';
 import {addExtra} from 'puppeteer-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import AdblockerPlugin from 'puppeteer-extra-plugin-adblocker';
+import AnonymizeUAPlugin from 'puppeteer-extra-plugin-anonymize-ua';
 
 let browser: Browser | undefined;
 
@@ -73,11 +75,21 @@ interface McpLaunchOptions {
   };
   args?: string[];
   stealth?: boolean;
+  anonymizeUa?: boolean;
+  adblock?: boolean;
 }
 
 export async function launch(options: McpLaunchOptions): Promise<Browser> {
-  const {channel, executablePath, customDevTools, headless, isolated, stealth} =
-    options;
+  const {
+    channel,
+    executablePath,
+    customDevTools,
+    headless,
+    isolated,
+    stealth,
+    anonymizeUa,
+    adblock,
+  } = options;
   const profileDirName =
     channel && channel !== 'stable'
       ? `chrome-profile-${channel}`
@@ -111,9 +123,30 @@ export async function launch(options: McpLaunchOptions): Promise<Browser> {
         : 'chrome';
   }
 
-  // Select puppeteer instance based on stealth option
-  const puppeteerInstance = stealth
-    ? addExtra(puppeteer).use(StealthPlugin())
+  // Configure puppeteer instance with requested plugins
+  const needsExtra = stealth || anonymizeUa || adblock;
+  const puppeteerInstance = needsExtra
+    ? (() => {
+        let instance = addExtra(puppeteer);
+
+        if (stealth) {
+          instance = instance.use(StealthPlugin());
+        }
+
+        if (anonymizeUa) {
+          instance = instance.use(AnonymizeUAPlugin());
+        }
+
+        if (adblock) {
+          instance = instance.use(
+            AdblockerPlugin({
+              blockTrackers: true,
+            }),
+          );
+        }
+
+        return instance;
+      })()
     : puppeteer;
 
   try {

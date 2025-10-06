@@ -86,6 +86,8 @@ async function getContext(): Promise<McpContext> {
         args: extraArgs,
         acceptInsecureCerts: args.acceptInsecureCerts,
         stealth: args.stealth,
+        anonymizeUa: args.anonymizeUa,
+        adblock: args.adblock,
       });
 
   if (context?.browser !== browser) {

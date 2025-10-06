@@ -90,6 +90,16 @@ export const cliOptions = {
     description: `Enable puppeteer-extra-plugin-stealth to make Puppeteer harder to detect. Helps avoid detection by anti-bot systems.`,
     default: false,
   },
+  anonymizeUa: {
+    type: 'boolean',
+    description: `Anonymize the user-agent by removing HeadlessChrome from the UA string. Works with --stealth or standalone.`,
+    default: false,
+  },
+  adblock: {
+    type: 'boolean',
+    description: `Enable ad and tracker blocking using puppeteer-extra-plugin-adblocker. Improves page load speed and reduces fingerprinting.`,
+    default: false,
+  },
 } satisfies Record<string, YargsOptions>;
 
 export function parseArguments(version: string, argv = process.argv) {
@@ -120,6 +130,15 @@ export function parseArguments(version: string, argv = process.argv) {
         'Launch Chrome with the initial viewport size of 1280x720px',
       ],
       ['$0 --stealth', 'Enable stealth mode to avoid bot detection'],
+      [
+        '$0 --stealth --anonymizeUa',
+        'Enable stealth mode with anonymized user-agent',
+      ],
+      ['$0 --adblock', 'Block ads and trackers'],
+      [
+        '$0 --stealth --adblock',
+        'Enable stealth mode with ad blocking for maximum privacy',
+      ],
     ]);
 
   return yargsInstance
